@@ -1,4 +1,0 @@
-template <class D>
-DNode::<D>DNode(){
-  head = 0;
-}
