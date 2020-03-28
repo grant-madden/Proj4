@@ -2,15 +2,18 @@
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
+#include "dnode.h"
+#include "node_iterator.h"
+
 
 #ifndef DLIST_H
 #define DLIST_H
 using namespace std;
-#include "dnode.h."
-
 template <class T>
 class dlist{
     public:
+      typedef node_iterator<T> iterator;
+
       dlist(){
         head = tail = NULL;
       }
@@ -20,10 +23,36 @@ class dlist{
       void rear_remove();
       void show();
       void reverse_show();
+
+      // FUNCTIONS TO PROVIDE ITERATORS
+        // iterator begin(){
+        //     // return iterator(head);
+        // }
+        
+        // iterator end(){
+        //     // return iterator(NULL);
+        // }
+
+        // iterator r_begin(){
+        //     // return iterator(tail);
+        // }
+
+        // iterator r_end(){
+        //     // return iterator(NULL);
+        // }
+
     private:
-      dnode <T> * type;
       dnode <T> * head;
       dnode <T> * tail;
+      int size(){
+        const dnode<T> *cursor;
+        int i = 0;
+        for(cursor = head; cursor != NULL; cursor = cursor -> next())
+            ++i;
+        return i;
+      }
+      // size_type node_count; // Number of nodes on the list
+
     };
 
 template <class T>
@@ -40,13 +69,13 @@ void dlist<T>::rear_insert(T item){
         tail -> set_previous(head);
     }
     else {
-      dnode<T> * cursor = head;
-      while (cursor -> next() != NULL){
-          cursor = cursor -> next();
-      }
-      cursor -> set_next(newItem);
-      tail = newItem;
-      tail -> set_previous(cursor);
+        dnode<T> * cursor = head;
+        while (cursor -> next() != NULL){
+            cursor = cursor -> next();
+        }
+        cursor -> set_next(newItem);
+        tail = newItem;
+        tail -> set_previous(cursor);
     }
    
 }
@@ -74,15 +103,14 @@ void dlist<T>::front_insert(T item){
 
 template <class T>
 void dlist<T>::rear_remove(){
-  tail = tail -> previous();
-  // tail -> next() = NULL;
-  tail -> set_next(NULL);
+    tail = tail -> previous();
+    tail -> set_next(NULL);
 }
 
 template <class T>
 void dlist<T>::front_remove(){
-  head = head -> next();
-  head -> set_previous(NULL);
+    head = head -> next();
+    head -> set_previous(NULL);
 }
 
 template <class T>

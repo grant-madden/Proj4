@@ -40,10 +40,10 @@ int main(){
    cout<<endl<<endl;
 
 // testing if the list can be traversed in both directions
-/*
-   lis1.reverse_show();
-   cout<<endl<<endl;
-*/
+
+   // lis1.reverse_show();
+   // cout<<endl<<endl;
+
 // declaring an iterator and using it to traverse list frontwards
 
    // dlist<int>::iterator it1;
@@ -52,11 +52,11 @@ int main(){
    // cout<<endl<<endl;
 
 // using iterator to traverse list backwards
-/*
-   for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
-	cout<<*it1<<endl;
-   cout<<endl<<endl;
-*/
+
+   // for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
+	// cout<<*it1<<endl;
+   // cout<<endl<<endl;
+
 // moving the iterator to the third element and putting 89 before that
 /*
    it1 = lis1.begin();

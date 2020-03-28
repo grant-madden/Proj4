@@ -24,14 +24,18 @@ class dnode {
       T data(){
     return datafield;
 }
+    
 
       dnode *previous(){
     return previousptr;
 }
 
+    
+
       dnode *next(){
     return nextptr;
 }
+    
       void set_data(int d){
     cout << "d: " << d << endl;
     datafield = d;
