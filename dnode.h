@@ -15,44 +15,36 @@ class dnode {
         previousptr = p;
         nextptr = n;
       }
-      // dnode(int d = 0, dnode * p = NULL, dnode * n = NULL){
-      //   datafield = d;
-      //   previousptr = p;
-      //   nextptr = n;
-      // }
 
       T& data(){
-    return datafield;
-}
+          return datafield;
+      }
 
-const T& data()const{
-    return datafield;
-}
+      const T& data()const{
+          return datafield;
+      }
     
-
       dnode *previous(){
-    return previousptr;
-}
-
-    
+        return previousptr;
+      }
 
       dnode *next(){
-    return nextptr;
-}
+          return nextptr;
+      }
     
       void set_data(int d){
-    cout << "d: " << d << endl;
-    datafield = d;
-    cout << "datafield: " << datafield << endl;
+        cout << "d: " << d << endl;
+        datafield = d;
+        cout << "datafield: " << datafield << endl;
+      }
 
-}
       void set_previous(dnode * p){
-    previousptr = p;
-}
+          previousptr = p;
+      }
 
       void set_next(dnode * n){
-      nextptr = n;
-}
+          nextptr = n;
+      }
       
     private:
       int datafield;

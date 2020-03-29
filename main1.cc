@@ -72,38 +72,40 @@ int main(){
    cout<<endl<<endl;
 
 // traversing the second list from the rear and putting 256 in middle
-/*
+
    tmp = 256;
    it1=lis2.r_begin();
    for(int i = 0; i<lis2.size()/2; --it1,++i)
        ;
    lis2.insert_after(it1, tmp);
    for(it1=lis2.begin(); it1 != lis2.end(); ++it1)
-        cout<<*it1<<endl;
+        cout<<*it1<<", ";
    cout<<endl<<endl;
    for(it1 = lis2.r_begin(); it1 != lis2.r_end(); --it1)
-        cout<<*it1<<endl;
+        cout<<*it1<<", ";
    cout<<endl<<endl;
-/*
+
 // testing copy constructor and assignment operator
-/*
+
 {
-   dlist<int> copy(lis1);
-   lis1 = lis2;
-   for(it1=lis1.begin(); it1 != lis1.end(); ++it1)
-        cout<<*it1<<endl;
-   cout<<endl<<endl;
-   for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
-        cout<<*it1<<endl;
-   cout<<endl<<endl;
-   for(it1=copy.begin(); it1 != copy.end(); ++it1)
-        cout<<*it1<<endl;
-   cout<<endl<<endl;
-   for(it1 = copy.r_begin(); it1 != copy.r_end(); --it1)
-        cout<<*it1<<endl;
-   cout<<endl<<endl;
+   // cout << "Copy start:" << endl;
+   // dlist<int> copy(lis1);
+   // lis1 = lis2;
+   // for(it1=lis1.begin(); it1 != lis1.end(); ++it1)
+   //      cout<<*it1<<endl;
+   // cout<<endl<<endl;
+   // for(it1 = lis1.r_begin(); it1 != lis1.r_end(); --it1)
+   //      cout<<*it1<<endl;
+   // cout<<endl<<endl;
+   // for(it1=copy.begin(); it1 != copy.end(); ++it1)
+   //      cout<<*it1<<endl;
+   // cout<<endl<<endl;
+   // for(it1 = copy.r_begin(); it1 != copy.r_end(); --it1)
+   //      cout<<*it1<<endl;
+   // cout<<endl<<endl;
+   // cout << "Copy end:" << endl;
 } // copy has been destroyed
-*/
+
 // finding out if the list still works after the copy is destroyed
 /*
    for(it1=lis1.begin(); it1 != lis1.end(); ++it1)

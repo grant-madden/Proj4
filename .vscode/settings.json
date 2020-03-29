@@ -1,7 +1,8 @@
 {
   "cSpell.words": [
     "dlist",
-    "dnode"
+    "dnode",
+    "tptr"
   ],
   "files.associations": {
     "iostream": "cpp",
