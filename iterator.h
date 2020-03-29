@@ -2,7 +2,6 @@
 #define ITERATOR_H
 
 #include "dnode.h"
-#include "dlist.h"
 
 template <class T>
 class node_iterator{
@@ -16,10 +15,10 @@ class node_iterator{
     bool operator ==(const node_iterator &other){
         return current == other.current;
     }
-    T operator * (){return current -> data();}
+    T& operator * (){return current -> data();}
 
     // Unary operators
-    node_iterator operator ++(){ // prefix
+    node_iterator& operator ++(){ // prefix
         current = current -> next();
         return *this;
     }
@@ -28,7 +27,7 @@ class node_iterator{
         original = current -> next();
         return original;
     }
-    node_iterator operator --(){ // prefix
+    node_iterator& operator --(){ // prefix
         current = current -> previous();
         return *this;
     }

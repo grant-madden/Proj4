@@ -21,7 +21,7 @@ int main(){
    for(int i = 0; i<35; ++i)
 	lis1.rear_insert(i);
    lis1.show();
-   // lis1.reverse_show();
+   lis1.reverse_show();
    cout<<endl;
 
 // testing front_insert and show
@@ -41,15 +41,15 @@ int main(){
 
 // testing if the list can be traversed in both directions
 
-   // lis1.reverse_show();
-   // cout<<endl<<endl;
+   lis1.reverse_show();
+   cout<<endl<<endl;
 
 // declaring an iterator and using it to traverse list frontwards
 
-   // dlist<int>::iterator it1;
-   // for(it1=lis1.begin(); it1 != lis1.end(); ++it1)
-	// cout<<*it1<<endl;
-   // cout<<endl<<endl;
+   dlist<int>::iterator it1;
+   for(it1=lis1.begin(); it1 != lis1.end(); ++it1)
+	cout<<*it1<<endl;
+   cout<<endl<<endl;
 
 // using iterator to traverse list backwards
 

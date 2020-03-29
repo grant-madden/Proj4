@@ -21,7 +21,11 @@ class dnode {
       //   nextptr = n;
       // }
 
-      T data(){
+      T& data(){
+    return datafield;
+}
+
+const T& data()const{
     return datafield;
 }
     
