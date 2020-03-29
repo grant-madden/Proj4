@@ -47,7 +47,7 @@ class dnode {
       }
       
     private:
-      int datafield;
+      T datafield;
 	    dnode *previousptr;
 	    dnode *nextptr;
     };

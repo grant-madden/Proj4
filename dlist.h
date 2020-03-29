@@ -258,22 +258,42 @@ dlist<T>::~dlist(){
 
 template <class T>
 dlist<T>::dlist(const dlist& other){
-    if (other.head == NULL){
-        head = NULL;
+    if(other.head == NULL){ // check for empty list
+        head = tail = NULL;
     }
     else {
-        dnode<T> * nextPointer, * frontPointer;
-        head = new dnode<T>(other.head -> data());
-        nextPointer = other.head -> next();
-        frontPointer = head;
-        while (nextPointer != NULL){
-            frontPointer -> set_next(new dnode<T>(nextPointer -> data()));
-            nextPointer -> set_previous(frontPointer);
-            //Move down list
-            frontPointer = frontPointer -> next();
-            nextPointer = nextPointer -> next();
-        }  
+        head = tail = new dnode<T>(other.head -> data());
+        dnode<T> *cursor = head;
+        dnode<T> *other_ptr = other.head -> next();
+
+        while(other_ptr != NULL){
+            cursor -> set_next(new dnode<T>(other_ptr -> data(), cursor));
+            cursor = cursor -> next();
+            tail = cursor;
+            other_ptr = other_ptr -> next();
+        }
     }
+    // if (other.head == NULL){
+    //     head = NULL;
+    // }
+    // else {
+    //     dnode<T> * nextPointer, * cursor;
+
+    //     head = new dnode<T>(other.head -> data());
+
+    //     nextPointer = other.head -> next();
+    //     cursor = head;
+    //     while (nextPointer != NULL){
+    //         cursor -> set_next(new dnode<T>(nextPointer -> data()));
+    //         nextPointer -> set_previous(cursor);
+    //         //Move down list
+    //         cursor = cursor -> next();
+    //         tail = nextPointer;
+    //         nextPointer = nextPointer -> next();
+            
+    //     }  
+        
+    // }
 }
 
 template <class T>
@@ -281,31 +301,14 @@ void dlist<T>::operator =(const dlist& other){
     if (this == &other){
         return;
     }
-    dnode<T> * cursor = head -> next();
-    while (cursor != NULL){
+    dnode<T> * deletePtr = head -> next();
+    while (deletePtr != NULL){
         delete head;
-        head = cursor;
-        cursor = cursor -> next();
+        head = deletePtr;
+        deletePtr = deletePtr -> next();
     }
     delete head;
-    // datafoe = other.studentName;
-    // dnode<T> * otherHead = other.head;
-
-    // if (otherHead == NULL){
-    //     cursor -> set_data(otherHead -> data());
-    //     cursor -> set_next(NULL);
-    //     return;
-    // }
-    // else {
-    //     cursor -> set_data(otherHead -> data());
-    //     otherHead = otherHead -> next();
-    //     while (otherHead != NULL){
-    //         cursor -> set_next(new dnode<T>);
-    //         cursor = cursor -> next();
-    //         cursor -> set_data(otherHead -> data());
-    //         otherHead = otherHead -> next();
-    //     }
-    //     cursor -> set_next(NULL);
-    // }
+    head = other.head;
+    tail = other.tail;
 }
 #endif
